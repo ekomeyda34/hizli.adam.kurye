@@ -1,56 +1,3 @@
-.nav-panel {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-left: auto;
-}
-
-.nav-links {
-    display: flex;
-    gap: 1.25rem;
-}
-
-.nav-links a {
-    color: var(--white); /* Daha az soluk olması için artırıldı */
-    font-weight: 500;
-}
-
-.nav-links a.active {
-    color: var(--accent);
-}
-
-.nav-cta {
-    display: flex;
-    gap: 0.75rem;
-}
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    border: 1px solid rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.05);
-    border-radius: 999px;
-    padding: 0.55rem 0.8rem;
-    cursor: pointer;
-    margin-left: auto;
-}
-
-.menu-toggle span {
-    width: 20px;
-    height: 2px;
-    background: var(--white);
-    display: block;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.menu-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-}
-
-.menu-toggle .bar {
-    display: block;
-}
 :root {
     --bg: #f4f6fb;
     --white: #ffffff;
@@ -142,7 +89,7 @@ a {
 }
 
 .logo small {
-    color: rgba(255,255,255,0.8); /* Opaklık artırıldı */
+    color: rgba(255,255,255,0.8); /* Düzeltildi: Opaklık artırıldı */
     font-size: 0.8rem;
 }
 
@@ -159,7 +106,7 @@ a {
 }
 
 .nav-links a {
-    color: var(--white); /* Daha az soluk olması için artırıldı */
+    color: var(--white); /* Düzeltildi: Opaklık artırıldı */
     font-weight: 500;
 }
 
@@ -192,6 +139,10 @@ a {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.menu-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+}
+
 .header-grid {
     display: grid;
     gap: 2.5rem;
@@ -212,12 +163,12 @@ h1 span {
     text-transform: uppercase;
     letter-spacing: 0.32em;
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.9); /* Opaklık artırıldı */
+    color: rgba(255,255,255,0.9); /* Düzeltildi: Opaklık artırıldı */
     margin: 0;
 }
 
 .lead {
-    color: var(--white); /* Opaklık artırıldı */
+    color: var(--white); /* Düzeltildi: Opaklık artırıldı */
     font-size: 1.05rem;
     max-width: 520px;
 }
@@ -273,7 +224,7 @@ h1 span {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(255,255,255,0.9); /* Opaklık artırıldı */
+    color: rgba(255,255,255,0.9); /* Düzeltildi: Opaklık artırıldı */
 }
 
 .trust-stats strong {
@@ -288,8 +239,6 @@ h1 span {
     padding: 1.75rem;
     box-shadow: 0 20px 50px rgba(0,0,0,0.4);
 }
-
-/* .hero-media kaldırıldığı için ilgili CSS'ler silindi */
 
 .page-hero {
     display: grid;
@@ -306,7 +255,7 @@ h1 span {
     list-style: none;
     padding: 0;
     margin: 1rem 0;
-    color: var(--white); /* Opaklık artırıldı */
+    color: var(--white); /* Düzeltildi: Opaklık artırıldı */
 }
 
 .hero-card li {
@@ -316,7 +265,7 @@ h1 span {
 
 .hero-card .mini-label {
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.9); /* Opaklık artırıldı */
+    color: rgba(255,255,255,0.9); /* Düzeltildi: Opaklık artırıldı */
 }
 
 .section {
@@ -363,8 +312,6 @@ h1 span {
     margin-top: 0;
     color: var(--primary-dark);
 }
-
-/* .gallery-grid kaldırıldığı için ilgili CSS'ler silindi */
 
 .highlight {
     background: linear-gradient(135deg, #eef2ff, #fdfdff);
@@ -523,8 +470,8 @@ textarea {
 }
 
 .contact-card {
-    background-color: rgba(255,255,255,0.1); /* Arka plan biraz daha belirginleştirildi */
-    border: 1px solid rgba(255,255,255,0.2); /* Çizgi belirginleştirildi */
+    background-color: rgba(255,255,255,0.1); /* Düzeltildi: Arka plan biraz daha belirginleştirildi */
+    border: 1px solid rgba(255,255,255,0.2); /* Düzeltildi: Çizgi belirginleştirildi */
 }
 
 .contact-page .contact-card {
@@ -539,7 +486,7 @@ textarea {
 
 .contact-card p {
     margin: 0.5rem 0;
-    color: var(--white); /* Daha az soluk olması için artırıldı */
+    color: var(--white); /* Düzeltildi: Opaklık artırıldı */
 }
 
 .contact-page .contact-card p {
@@ -624,7 +571,7 @@ textarea {
 
 .site-footer {
     background-color: #050915;
-    color: rgba(255,255,255,0.85); /* Opaklık artırıldı */
+    color: rgba(255,255,255,0.85); /* Düzeltildi: Opaklık artırıldı */
     padding: 2rem 0 1rem;
 }
 
@@ -643,7 +590,7 @@ textarea {
 }
 
 .footer-links a {
-    color: var(--white); /* Daha az soluk olması için artırıldı */
+    color: var(--white); /* Düzeltildi: Opaklık artırıldı */
     font-weight: 500;
 }
 
@@ -651,7 +598,7 @@ textarea {
     text-align: center;
     margin-top: 1.5rem;
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.75); /* Opaklık artırıldı */
+    color: rgba(255,255,255,0.75); /* Düzeltildi: Opaklık artırıldı */
 }
 
 .toast {
@@ -703,6 +650,78 @@ textarea {
 
 .mobile-btn.call {
     border: 1px solid rgba(255,255,255,0.4);
+}
+
+/* Yeni CSS kodları (choice modal) */
+.choice-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 10000;
+    display: flex;
+    align-items: flex-end; /* Mobil cihazlarda alttan çıksın */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.choice-modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.choice-content {
+    background: var(--white);
+    width: 100%;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.choice-modal.show .choice-content {
+    transform: translateY(0);
+}
+
+#choiceTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.choice-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.choice-option {
+    display: block;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.2s;
+    border: 1px solid var(--border);
+    color: var(--primary-dark);
+}
+
+.choice-option.whatsapp {
+    background: rgba(37, 211, 102, 0.1);
+    border-color: rgba(37, 211, 102, 0.3);
+}
+
+.choice-option.call {
+    background: rgba(28, 63, 170, 0.1);
+    border-color: rgba(28, 63, 170, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -780,5 +799,16 @@ textarea {
 
     body {
         padding-bottom: 100px;
+    }
+}
+
+@media (min-width: 601px) {
+    .choice-modal {
+        align-items: center; /* Masaüstünde ortada çıksın */
+        justify-content: center;
+    }
+    .choice-content {
+        max-width: 400px;
+        border-radius: 18px;
     }
 }
