@@ -5,6 +5,7 @@ const distanceField = document.getElementById("distance");
 const priceField = document.getElementById("price");
 const koliWarning = document.getElementById("koliWarning");
 const whatsappLink = document.getElementById("whatsappLink");
+const courierTypeDropdown = document.getElementById("courierType"); // Kurye Tipi seçimi
 
 let pickupAutocomplete;
 let deliveryAutocomplete;
@@ -17,7 +18,6 @@ function initMap() {
     const pickupInput = document.querySelector('input[name="pickup"]');
     const deliveryInput = document.querySelector('input[name="delivery"]');
     
-    // Sadece Türkiye sınırlarında arama yap
     const options = {
         componentRestrictions: { country: "tr" },
         fields: ["geometry", "name"],
@@ -36,7 +36,6 @@ menuToggle?.addEventListener("click", (e) => {
     document.body.classList.toggle("nav-open");
 });
 
-// Sayfa içinde boşluğa tıklanırsa menüyü kapat
 document.addEventListener("click", (e) => {
     if (document.body.classList.contains("nav-open") && 
         !e.target.closest(".nav-panel") && 
@@ -45,24 +44,24 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Menü linkine tıklanırsa menüyü kapat
 document.querySelectorAll(".nav-links a").forEach(link => {
     link.addEventListener("click", () => {
         document.body.classList.remove("nav-open");
     });
 });
 
-// 3. Fiyat Hesaplama Mantığı
-priceForm?.addEventListener("submit", (e) => {
-    e.preventDefault(); // Sayfa yenilenmesini engelle
+// 3. Fiyat Hesaplama Mantığı (Hem Buton Hem Dropdown Tetikler)
+const handlePriceCalculation = (e) => {
+    // Butona basıldığında tarayıcı yenilemesini engeller
+    if (e && e.type === 'submit') e.preventDefault(); 
 
     const pickupVal = document.querySelector('input[name="pickup"]').value;
     const deliveryVal = document.querySelector('input[name="delivery"]').value;
-    const courierType = document.getElementById("courierType").value; // Hizmet Tipi
+    const courierType = courierTypeDropdown.value; // Seçili Kurye Tipi
     const shipmentType = document.getElementById("shipmentType").value; // Gönderi Tipi
 
+    // Adresler boşsa hesaplama yapma
     if (!pickupVal || !deliveryVal) {
-        alert("Lütfen çıkış ve varış adreslerini giriniz.");
         return;
     }
 
@@ -71,7 +70,7 @@ priceForm?.addEventListener("submit", (e) => {
     submitBtn.textContent = "Hesaplanıyor...";
     submitBtn.disabled = true;
 
-    // Google Servisine İstek At
+    // Google Haritalar Servisine Mesafe İstek Paketi
     const request = {
         origin: pickupVal,
         destination: deliveryVal,
@@ -84,7 +83,6 @@ priceForm?.addEventListener("submit", (e) => {
         submitBtn.textContent = originalText;
 
         if (status === google.maps.DirectionsStatus.OK) {
-            // Mesafeyi al ve KM'ye çevir
             const distanceMeters = result.routes[0].legs[0].distance.value;
             let distanceKm = (distanceMeters / 1000).toFixed(1);
             
@@ -94,10 +92,10 @@ priceForm?.addEventListener("submit", (e) => {
             let totalPrice = 0;
             let serviceName = "";
 
-            // --- SENİN BELİRLEDİĞİN FİYAT TARİFESİ ---
+            // --- FİYAT TARİFESİ ---
             if (courierType === "normal") {
                 // Normal: Açılış 125 TL + 45 TL/km
-                totalPrice = 125 + (parseFloat(distanceKm) * 45);
+                totalPrice = 125 + (parseFloat(distanceKm) * 45); 
                 serviceName = "Normal Kurye";
             } 
             else if (courierType === "express") {
@@ -111,14 +109,14 @@ priceForm?.addEventListener("submit", (e) => {
                 serviceName = "VIP Kurye";
             }
 
-            // Fiyatı tam sayı yap
+            // Fiyatı tam sayıya yuvarla
             totalPrice = Math.ceil(totalPrice);
 
             // Sonuçları Ekrana Yaz
             distanceField.textContent = `${distanceKm} km`;
             priceField.textContent = totalPrice.toLocaleString('tr-TR');
             
-            // KOLİ UYARISI VE NOT
+            // KOLİ UYARISI VE WHATSAPP NOTU
             let whatsappNote = "";
             if (shipmentType === "Koli") {
                 koliWarning.classList.remove("hidden");
@@ -127,7 +125,6 @@ priceForm?.addEventListener("submit", (e) => {
                 koliWarning.classList.add("hidden");
             }
 
-            // Sonuç kutusunu göster
             priceResult.classList.remove("hidden");
             
             // WhatsApp Linkini Oluştur
@@ -139,7 +136,16 @@ priceForm?.addEventListener("submit", (e) => {
             alert("Mesafe hesaplanamadı. Lütfen adresleri listeden seçerek tekrar deneyiniz.");
         }
     });
+};
+
+// Form submit olayını hesaplama fonksiyonuna bağla (Butona basılınca)
+priceForm?.addEventListener("submit", handlePriceCalculation);
+
+// *** ÇÖZÜM BURADA: Kurye Tipi değişince otomatik hesaplama yap ***
+courierTypeDropdown?.addEventListener("change", () => {
+    // Kurye tipi değiştiğinde, eğer adresler doluysa, formun submit olayını tetikler.
+    priceForm.dispatchEvent(new Event('submit'));
 });
 
-// Bu satır GitHub üzerinde çalışması için çok önemlidir:
+// Google Maps API'nin initMap fonksiyonunu bulması için zorunlu
 window.initMap = initMap;
