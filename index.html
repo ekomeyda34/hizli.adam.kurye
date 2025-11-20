@@ -30,12 +30,13 @@
                 <div class="nav-panel" id="primaryNav">
                     <div class="nav-links">
                         <a href="index.html" class="active">Anasayfa</a>
-                        <a href="hizmetler.html">Tüm İlçeler</a>
+                        <a href="hizmetler.html">Hizmetlerimiz</a>
+                        <a href="etiler-kurye.html">Etiler Kurye</a>
                         <a href="iletisim.html">İletişim</a>
                     </div>
                     <div class="nav-cta">
-                        <a href="https://wa.me/905423022628" target="_blank" class="btn primary notify-trigger" data-message="Operasyon ekibimiz WhatsApp üzerinden 5 dk içinde yanıt verir.">WhatsApp</a>
-                        <a href="tel:05423022628" class="btn ghost notify-trigger" data-message="Operasyon masamız sizi hemen arıyor.">Ara</a>
+                        <a href="https://wa.me/905403022628" target="_blank" class="btn primary notify-trigger" data-message="Operasyon ekibimiz WhatsApp üzerinden 5 dk içinde yanıt verir.">WhatsApp</a>
+                        <a href="tel:05403022628" class="btn ghost notify-trigger" data-message="Operasyon masamız sizi hemen arıyor.">Ara</a>
                     </div>
                 </div>
             </nav>
@@ -45,8 +46,8 @@
                     <h1>Şehrin en hızlı<br><span>kurye operasyonu</span></h1>
                     <p class="lead">7/24 aktif filo, tecrübeli sürücüler ve uçtan uca takip sistemi ile paketleriniz tam zamanında teslim edilir.</p>
                     <div class="cta-group">
-                        <a href="https://wa.me/905423022628" target="_blank" class="btn primary notify-trigger" data-message="WhatsApp üzerinden detayları aldık.">WhatsApp ile Teklif Al</a>
-                        <a href="tel:05423022628" class="btn ghost notify-trigger" data-message="Operasyon koordinatörümüz sizi aramak üzere.">0542 302 26 28</a>
+                        <a href="https://wa.me/905403022628" target="_blank" class="btn primary notify-trigger" data-message="WhatsApp üzerinden detayları aldık.">WhatsApp ile Teklif Al</a>
+                        <a href="tel:05403022628" class="btn ghost notify-trigger" data-message="Operasyon koordinatörümüz sizi aramak üzere.">0540 302 26 28</a>
                     </div>
                     <ul class="trust-stats">
                         <li><strong>10.000+</strong><span>tamamlanan teslimat</span></li>
@@ -54,10 +55,6 @@
                         <li><strong>7/24</strong><span>canlı operasyon</span></li>
                     </ul>
                 </div>
-                <figure class="hero-media">
-                    <img src="https://images.unsplash.com/photo-1519752594763-2633d8d4ea2f?auto=format&fit=crop&w=900&q=70" alt="Şehir içinde motosikletli kurye" loading="lazy">
-                    <figcaption>Operasyon merkezimiz canlı veri akışıyla tüm sürücüleri takip eder.</figcaption>
-                </figure>
                 <div class="hero-card">
                     <h3>Kurumsal Çözümler</h3>
                     <ul>
@@ -72,113 +69,40 @@
     </header>
     
     <main>
-        <section class="section price-calculator" id="price">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="eyebrow">Anlık Fiyat Hesaplama</p>
-                    <h2>Tahmini teslimat ücretini öğrenin</h2>
-                    <p>Adreslerinizi girin, kurye tipini seçin, anında fiyatı görün.</p>
-                </div>
-                <div class="price-grid">
-                    <div class="card">
-                        <form id="priceForm">
-                            <div class="form-group">
-                                <label for="pickup">Alış Adresi</label>
-                                <input type="text" name="pickup" id="pickup" placeholder="Örn: Levent, Büyükdere Cd." required>
-                            </div>
-                            <div class="form-group">
-                                <label for="delivery">Teslimat Adresi</label>
-                                <input type="text" name="delivery" id="delivery" placeholder="Örn: Etiler, Nispetiye Cd." required>
-                            </div>
-                            <div class="form-group">
-                                <label for="courierType">Kurye Tipi</label>
-                                <select id="courierType" class="form-select">
-                                    <option value="normal">Normal Kurye (60-90 dk)</option>
-                                    <option value="express">Ekspres Kurye (45-60 dk)</option>
-                                    <option value="vip">VIP Kurye (30-45 dk)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="shipmentType">Gönderi İçeriği</label>
-                                <select id="shipmentType" class="form-select">
-                                    <option value="Evrak">Evrak/Dosya</option>
-                                    <option value="Koli">Koli/Paket (Uyarı: Fiyat değişebilir)</option>
-                                    <option value="Yemek">Yemek/Gıda</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn primary full-width">Fiyatı Hesapla</button>
-                        </form>
-                    </div>
-                    
-                    <div id="priceResult" class="card price-result hidden">
-                        <h3>Tahmini Teslimat Ücreti</h3>
-                        <p class="distance">Mesafe: <span id="distance">0 km</span></p>
-                        <div class="price-value">
-                            <span id="price">0</span> TL
-                        </div>
-                        <p id="koliWarning" class="mini-label hidden" style="color: var(--primary-dark);">⚠️ Koli uyarısı: Kesin fiyat, görseli WhatsApp'tan paylaştıktan sonra belirlenir.</p>
-
-                        <div class="form-group" style="margin-top: 1rem;">
-                            <label>Hangi WhatsApp Hattını Kullanmak İstersiniz?</label>
-                            <select id="whatsappChooser" class="form-select">
-                                <option value="905403022628">📞 WhatsApp 1 (Ana Hat - 0540...)</option>
-                                <option value="905423022628">📞 WhatsApp 2 (Alternatif - 0542...)</option>
-                            </select>
-                        </div>
-                        <a href="#" target="_blank" id="whatsappLink" class="btn primary full-width" style="margin-top: 1rem;">WhatsApp ile Sipariş Ver</a>
-                        <p class="mini-label">Fiyata KDV dahil değildir. Sadece tahmini ücrettir.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="section services">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">Hizmetlerimiz</p>
-                    <h2>Hızınıza hız katın</h2>
-                    <p>7/24 aktif, sigortalı ve dakik hizmet anlayışımızla tüm kurye operasyonlarınızı tek noktadan yönetin.</p>
+                    <p class="eyebrow">Neden Biz?</p>
+                    <h2>Kurumsal standartta motosikletli kurye</h2>
+                    <p>Operasyonunuzun ihtiyaçlarına göre esneyen SLA’ler, raporlamalar ve şeffaf iletişim.</p>
                 </div>
                 <div class="card-grid">
                     <article>
-                        <h3>Moto Kurye</h3>
-                        <p>Şehir içi evrak, dosya ve küçük paketlerin hızlı, güvenilir ve uygun maliyetli taşınması.</p>
+                        <h3>Anlık Takip</h3>
+                        <p>Gönderileriniz GPS destekli panel üzerinden canlı izlenir, anlık bildirimlerle süreçte kalırsınız.</p>
                     </article>
                     <article>
-                        <h3>VIP Kurye</h3>
-                        <p>Özel acil gönderileriniz için en yakın filonun sadece sizin için tahsis edilmesi. Maksimum hız.</p>
+                        <h3>Eğitimli Ekip</h3>
+                        <p>Tüm sürücülerimiz kurye eğitimi, müşteri iletişimi ve güvenli sürüş programlarından geçer.</p>
                     </article>
                     <article>
-                        <h3>Gece Kurye</h3>
-                        <p>Gece 00:00 ile sabah 07:00 arasındaki tüm acil ve planlı gönderileriniz için 7/24 aktif operasyon.</p>
+                        <h3>Sigortalı Teslimat</h3>
+                        <p>Her gönderi standart sigorta kapsamındadır, kritik paketler için ek güvence sağlarız.</p>
                     </article>
-                    <article>
-                        <h3>Kurumsal Abonelik</h3>
-                        <p>Aylık kurye ihtiyacı yüksek olan kurumsal firmalar için özel fiyat ve SLA garantisi.</p>
-                    </article>
-                </div>
-                <div class="cta-group center">
-                    <a href="hizmetler.html" class="btn primary">Tüm İlçeler</a>
-                    <a href="iletisim.html" class="btn ghost">Operasyon ile Görüş</a>
                 </div>
             </div>
         </section>
 
-        <section class="section highlight" id="iletisim">
+        <section class="section highlight">
             <div class="container highlight-grid">
                 <div>
-                    <p class="eyebrow">İletişim & Randevu</p>
-                    <h2>Tek tıkla operasyon masasına ulaşın</h2>
-                    <p>Profesyonel ekibimiz, en karmaşık kurye ihtiyaçlarınız için bile 5 dakika içinde size özel çözüm ve fiyatlandırma sunar.</p>
+                    <p class="eyebrow">Operasyon akışı</p>
+                    <h2>Talep → Planlama → Teslim</h2>
                     <ul class="steps">
-                        <li><span>1</span> WhatsApp üzerinden anlık fiyat ve bilgi alın.</li>
-                        <li><span>2</span> Operasyon masamızı arayarak dakik teslimat planı oluşturun.</li>
-                        <li><span>3</span> Gönderiniz için en yakın kurye hemen yola çıksın.</li>
+                        <li><span>01</span>Talep formu ve WhatsApp hattı ile sipariş alınır.</li>
+                        <li><span>02</span>Operasyon merkezi en uygun sürücüyü görevlendirir.</li>
+                        <li><span>03</span>Teslim anında dijital imza ve rapor paylaşılır.</li>
                     </ul>
-                    <div class="cta-group">
-                        <a href="https://wa.me/905423022628" target="_blank" class="btn primary">WhatsApp</a>
-                        <a href="tel:05423022628" class="btn ghost">Hemen Ara</a>
-                    </div>
                 </div>
                 <div class="quote-card">
                     <p>"Kurumsal müşterilerimiz için dakikliğin ne kadar kritik olduğunu biliyoruz. Bu yüzden her teslimatı ayrı bir proje gibi yönetiyoruz."</p>
@@ -187,26 +111,52 @@
             </div>
         </section>
 
-        <section class="section gallery">
+        <section class="section price" id="price">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">Operasyondan kareler</p>
-                    <h2>Sahadan görüntüler</h2>
-                    <p>Merkez ofisimiz, sürücü eğitimlerimiz ve filomuzdan seçili kareler.</p>
+                    <p class="eyebrow">Fiyat simülasyonu</p>
+                    <h2>Hemen ön fiyat alın</h2>
+                    <p>Net fiyatlandırma için adresleri paylaşın, ortalama fiyatı anında görün.</p>
                 </div>
-                <div class="gallery-grid">
-                    <figure>
-                        <img src="https://images.unsplash.com/photo-1475778057357-d35f37fa89dd?auto=format&fit=crop&w=700&q=70" alt="Kurye motosikleti" loading="lazy">
-                        <figcaption>Şişli - Maslak hattında motorize teslimat</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=700&q=70" alt="Kurye operasyonu ofis" loading="lazy">
-                        <figcaption>7/24 Canlı Operasyon Merkezi</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="https://images.unsplash.com/photo-1509315570077-802c6110f606?auto=format&fit=crop&w=700&q=70" alt="Kurye paketi teslimatı" loading="lazy">
-                        <figcaption>Hızdan ödün vermeyen sürüş eğitimi</figcaption>
-                    </figure>
+                <div class="price-grid">
+                    <form id="priceForm" class="card">
+                        <label for="pickup">Alış Adresi</label>
+                        <input type="text" id="pickup" name="pickup" placeholder="Örn. Maslak, Sarıyer" required>
+
+                        <label for="delivery">Teslimat Adresi</label>
+                        <input type="text" id="delivery" name="delivery" placeholder="Örn. Kadıköy, İstanbul" required>
+
+                        <button type="submit" class="btn primary full-width">Fiyatı Hesapla</button>
+                        <p class="form-note">Gerçek fiyat operasyon ekibimiz tarafından onaylanır.</p>
+                    </form>
+
+                    <div id="priceResult" class="card result-card hidden">
+                        <p class="result-label">Tahmini mesafe</p>
+                        <p class="result-value"><span id="distance">-</span></p>
+                        <p class="result-label">Öngörülen fiyat</p>
+                        <p class="result-value price"><span id="price">-</span> TL</p>
+                        <p class="result-meta">WhatsApp üzerinden detaylar ekibimize iletildi.</p>
+                        <a href="https://wa.me/905403022628" target="_blank" class="btn ghost full-width">Operatöre bağlan</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact" id="iletisim">
+            <div class="container contact-grid">
+                <div>
+                    <p class="eyebrow">İletişim</p>
+                    <h2>Operasyon merkezimizle tanışın</h2>
+                    <p>İstanbul merkezli ekip, tüm Türkiye’de çözüm ortakları ile hizmet verir.</p>
+                </div>
+                <div class="contact-card card">
+                    <p><strong>Telefon:</strong> <a href="tel:05403022628">0540 302 26 28</a></p>
+                    <p><strong>E-posta:</strong> <a href="mailto:info@kuryemerkezi.com">info@kuryemerkezi.com</a></p>
+                    <p><strong>Adres:</strong> Maslak Mah., Sarıyer / İstanbul</p>
+                    <div class="cta-group">
+                        <a href="https://wa.me/905403022628" target="_blank" class="btn primary">WhatsApp</a>
+                        <a href="#price" class="btn ghost">Teklif formu</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -220,9 +170,9 @@
             </div>
             <div class="footer-links">
                 <a href="#price">Fiyatlandırma</a>
-                <a href="hizmetler.html">Tüm İlçeler</a>
-                <a href="iletisim.html">İletişim</a>
-                <a href="https://wa.me/905423022628" target="_blank">WhatsApp</a>
+                <a href="etiler-kurye.html">Etiler Kurye</a>
+                <a href="#iletisim">İletişim</a>
+                <a href="https://wa.me/905403022628" target="_blank">WhatsApp</a>
             </div>
         </div>
         <p class="legal">&copy; 2025 Motosikletli Kurye Hizmeti. Tüm hakları saklıdır.</p>
@@ -233,11 +183,10 @@
     </div>
 
     <div class="mobile-action-bar">
-        <a href="https://wa.me/905423022628" target="_blank" class="mobile-btn whatsapp notify-trigger" data-message="WhatsApp hattımıza yönlendiriliyorsunuz.">WhatsApp</a>
-        <a href="tel:05423022628" class="mobile-btn call">Hemen Ara</a>
+        <a href="https://wa.me/905403022628" target="_blank" class="mobile-btn whatsapp notify-trigger" data-message="WhatsApp hattımıza yönlendiriliyorsunuz.">WhatsApp</a>
+        <a href="tel:05403022628" class="mobile-btn call notify-trigger" data-message="Operasyon masamız telefonunuzu bekliyor.">Bizi Arayın</a>
     </div>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap" async defer></script>
+
     <script src="script.js"></script>
 </body>
 </html>
