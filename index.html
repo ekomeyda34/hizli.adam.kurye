@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hızlı Adam Kurye | İstanbul Motosikletli Kurye Hizmetleri</title>
-    <meta name="description" content="İstanbul içi 60 dakikada motosikletli kurye teslimatı. Evrak, paket ve acil gönderileriniz için güvenilir çözüm.">
-    <link rel="stylesheet" href="style.css">
+    <title>Hızlı Adam Kurye | İstanbul Motorlu Kurye Hizmetleri</title>
+    <meta name="description" content="İstanbul içi acil motorlu kurye, ekspres ve VIP teslimat. Evrak, paket ve koli gönderimi için anında fiyat alın.">
+    
+    <link rel="stylesheet" href="./style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,14 +24,16 @@
                         <small>Express Kurye</small>
                     </div>
                 </div>
+                
                 <button class="menu-toggle" aria-label="Menüyü Aç">
                     <span></span><span></span><span></span>
                 </button>
+                
                 <div class="nav-panel">
                     <div class="nav-links">
                         <a href="index.html" class="active">Anasayfa</a>
-                        <a href="#bolgeler">Hizmet Bölgeleri</a>
                         <a href="#fiyat">Fiyat Hesapla</a>
+                        <a href="#bolgeler">Hizmet Bölgeleri</a>
                         <a href="iletisim.html">İletişim</a>
                     </div>
                     <div class="nav-cta">
@@ -42,114 +46,111 @@
                 <div>
                     <p class="eyebrow">7/24 MOTOSİKLETLİ KURYE</p>
                     <h1>İstanbul'un Her Noktasına <br><span>Hızlı Teslimat</span></h1>
-                    <p class="lead">Trafiğe takılmadan, evrak ve paketlerinizi dakikalar içinde alıyor, güvenle teslim ediyoruz. Şehir içi ekspres motorlu kurye çözümleri.</p>
+                    <p class="lead">Trafiğe takılmadan, evrak ve paketlerinizi dakikalar içinde alıyor, güvenle teslim ediyoruz.</p>
                     <div class="cta-group">
-                        <a href="https://wa.me/905403022628" class="btn primary">WhatsApp ile Kurye Çağır</a>
-                        <a href="tel:05403022628" class="btn ghost">Hemen Ara</a>
+                        <a href="#fiyat" class="btn primary">Hemen Kurye Çağır</a>
+                        <a href="tel:05403022628" class="btn ghost">Bizi Ara</a>
                     </div>
                 </div>
-                <div class="hero-card section-card">
-                     <img src="https://images.unsplash.com/photo-1618472609777-b038f1f04b8d?auto=format&fit=crop&w=600&q=80" alt="Motosikletli Kurye" style="border-radius: 16px; width: 100%;">
+                <div class="hero-media">
+                     <img src="https://images.unsplash.com/photo-1618472609777-b038f1f04b8d?auto=format&fit=crop&w=800&q=80" alt="Motosikletli Kurye">
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="section" id="avantajlar">
+        <section class="section" id="fiyat" style="background: #eef2ff;">
             <div class="container">
                 <div class="section-heading">
-                    <h2>Neden Hızlı Adam Kurye?</h2>
-                    <p>GPS veya karmaşık panellerle uğraşmayın. Bizi arayın, işi çözelim.</p>
+                    <h2>Fiyat Hesapla & Kurye Çağır</h2>
+                    <p>Hizmet türünü ve adresleri seçin, anında net fiyatı görün.</p>
                 </div>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <form id="priceForm" class="card" style="box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                        
+                        <div class="form-group">
+                            <label>Alınacak Adres</label>
+                            <input type="text" name="pickup" placeholder="Örn: Beşiktaş Merkez" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Teslim Edilecek Adres</label>
+                            <input type="text" name="delivery" placeholder="Örn: Kadıköy Moda" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hizmet Türü</label>
+                            <select id="courierType" class="form-select">
+                                <option value="normal">🛵 Normal Kurye (120-180 dk)</option>
+                                <option value="express">🚀 Ekspres Kurye (60-90 dk)</option>
+                                <option value="vip">💎 VIP Kurye (45-60 dk)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gönderi İçeriği</label>
+                            <select id="shipmentType" class="form-select">
+                                <option value="Evrak">📄 Evrak / Dosya</option>
+                                <option value="Zarf">✉️ Zarf / Pasaport</option>
+                                <option value="Koli">📦 Koli / Paket</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn primary full-width">Fiyatı Hesapla</button>
+                    </form>
+
+                    <div id="priceResult" class="card hidden" style="margin-top: 1.5rem; text-align: center; border: 2px solid var(--primary);">
+                        <p class="result-label">Tahmini Mesafe</p>
+                        <p class="result-val"><span id="distance">0 km</span></p>
+                        
+                        <p class="result-label">Tahmini Tutar</p>
+                        <p class="result-val price"><span id="price">0</span> TL</p>
+                        
+                        <div id="koliWarning" class="hidden warning-box">
+                            ⚠️ <strong>DİKKAT:</strong> Koli ebatlarına göre fiyat değişebilir. Lütfen ürünün fotoğrafını WhatsApp üzerinden iletiniz.
+                        </div>
+
+                        <a href="#" target="_blank" id="whatsappLink" class="btn primary full-width" style="margin-top: 1rem;">
+                            WhatsApp ile Onay Al
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="avantajlar">
+            <div class="container">
                 <div class="card-grid">
                     <div class="card">
-                        <h3>⚡ Ekspres Teslimat</h3>
-                        <p>Acil gönderileriniz için size en yakın motorlu kuryemiz yönlendirilir ve işlem önceliği sağlanır.</p>
+                        <h3>⚡ Hızlı Teslimat</h3>
+                        <p>İstanbul trafiğinde en hızlı rotaları kullanarak zaman kazandırıyoruz.</p>
                     </div>
                     <div class="card">
                         <h3>🛡️ Güvenli Taşıma</h3>
-                        <p>Paketleriniz, yağmur ve darbelere karşı korumalı özel taşıma çantalarında (topcase) taşınır.</p>
+                        <p>Gönderileriniz yağmura ve darbeye dayanıklı özel çantalarda taşınır.</p>
                     </div>
                     <div class="card">
-                        <h3>📞 Anlık İletişim</h3>
-                        <p>Robotlarla değil, operasyon ekibimizle doğrudan görüşün. Teslimat tamamlandığında WhatsApp'tan bilgi alın.</p>
+                        <h3>📞 7/24 Destek</h3>
+                        <p>Operasyon merkezimize dilediğiniz zaman ulaşabilirsiniz.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="bolgeler" style="background: #fff;">
+        <section class="section" id="bolgeler">
             <div class="container">
                 <div class="section-heading">
                     <h2>Hizmet Bölgelerimiz</h2>
-                    <p>İstanbul'un her iki yakasında, tüm ilçelerde aktif saha personelimiz bulunmaktadır.</p>
                 </div>
                 <div class="districts-grid">
                     <a href="sisli-kurye.html" class="district-item">Şişli Kurye</a>
-                    <a href="#" class="district-item">Adalar Kurye</a>
-                    <a href="#" class="district-item">Arnavutköy Kurye</a>
-                    <a href="#" class="district-item">Ataşehir Kurye</a>
-                    <a href="#" class="district-item">Avcılar Kurye</a>
-                    <a href="#" class="district-item">Bağcılar Kurye</a>
-                    <a href="#" class="district-item">Bahçelievler Kurye</a>
-                    <a href="#" class="district-item">Bakırköy Kurye</a>
-                    <a href="#" class="district-item">Başakşehir Kurye</a>
-                    <a href="#" class="district-item">Bayrampaşa Kurye</a>
-                    <a href="#" class="district-item">Beşiktaş Kurye</a>
-                    <a href="#" class="district-item">Beykoz Kurye</a>
-                    <a href="#" class="district-item">Beylikdüzü Kurye</a>
-                    <a href="#" class="district-item">Büyükçekmece Kurye</a>
-                    <a href="#" class="district-item">Çatalca Kurye</a>
-                    <a href="#" class="district-item">Çekmeköy Kurye</a>
-                    <a href="#" class="district-item">Esenler Kurye</a>
-                    <a href="#" class="district-item">Esenyurt Kurye</a>
-                    <a href="#" class="district-item">Eyüp Kurye</a>
-                    <a href="#" class="district-item">Fatih Kurye</a>
-                    <a href="#" class="district-item">Gaziosmanpaşa Kurye</a>
-                    <a href="#" class="district-item">Güngören Kurye</a>
-                    <a href="#" class="district-item">Kadıköy Kurye</a>
-                    <a href="#" class="district-item">Kağıthane Kurye</a>
-                    <a href="#" class="district-item">Kartal Kurye</a>
-                    <a href="#" class="district-item">Küçükçekmece Kurye</a>
-                    <a href="#" class="district-item">Maltepe Kurye</a>
-                    <a href="#" class="district-item">Pendik Kurye</a>
-                    <a href="#" class="district-item">Sancaktepe Kurye</a>
-                    <a href="#" class="district-item">Sarıyer Kurye</a>
-                    <a href="#" class="district-item">Silivri Kurye</a>
-                    <a href="#" class="district-item">Sultanbeyli Kurye</a>
-                    <a href="#" class="district-item">Sultangazi Kurye</a>
-                    <a href="#" class="district-item">Şile Kurye</a>
-                    <a href="#" class="district-item">Tuzla Kurye</a>
-                    <a href="#" class="district-item">Zeytinburnu Kurye</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="fiyat">
-            <div class="container">
-                <div class="section-heading">
-                    <h2>Fiyat Hesapla</h2>
-                    <p>Mesafeye göre tahmini ücreti görün.</p>
-                </div>
-                <div style="max-width: 500px; margin: 0 auto;">
-                    <form id="priceForm" class="card">
-                        <div style="margin-bottom: 1rem;">
-                            <label style="display:block; margin-bottom: 0.5rem; font-weight: 600;">Alınacak İlçe</label>
-                            <input type="text" name="pickup" placeholder="Örn: Beşiktaş" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" required>
-                        </div>
-                        <div style="margin-bottom: 1rem;">
-                            <label style="display:block; margin-bottom: 0.5rem; font-weight: 600;">Teslim Edilecek İlçe</label>
-                            <input type="text" name="delivery" placeholder="Örn: Kadıköy" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" required>
-                        </div>
-                        <button type="submit" class="btn primary" style="width: 100%; border:none;">Fiyatı Gör</button>
-                    </form>
-                    <div id="priceResult" class="card hidden" style="margin-top: 1rem; text-align: center;">
-                        <p style="font-size: 0.9rem; color: #666;">Tahmini Mesafe: <span id="distance" style="color:#000; font-weight:bold;">0 km</span></p>
-                        <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">~ <span id="price">0</span> TL</p>
-                        <a href="https://wa.me/905403022628" target="_blank" class="btn primary" style="display:block; margin-top: 1rem; text-decoration: none;">WhatsApp'tan Onay Al</a>
+                    <a href="besiktas-kurye.html" class="district-item">Beşiktaş Kurye</a>
+                    <a href="kadikoy-kurye.html" class="district-item">Kadıköy Kurye</a>
+                    <a href="sariyer-kurye.html" class="district-item">Sarıyer Kurye</a>
+                    <a href="fatih-kurye.html" class="district-item">Fatih Kurye</a>
+                    <a href="uskudar-kurye.html" class="district-item">Üsküdar Kurye</a>
                     </div>
-                </div>
             </div>
         </section>
 
@@ -163,12 +164,10 @@
             </div>
             <div class="footer-links">
                 <a href="index.html">Anasayfa</a>
-                <a href="sisli-kurye.html">Şişli Kurye</a>
                 <a href="iletisim.html">İletişim</a>
+                <a href="https://wa.me/905403022628">WhatsApp</a>
             </div>
-            <div>
-                <p>© 2025 Tüm Hakları Saklıdır.</p>
-            </div>
+            <div><p>© 2025 Tüm Hakları Saklıdır.</p></div>
         </div>
     </footer>
 
@@ -177,11 +176,8 @@
         <a href="tel:05403022628" class="mobile-btn call">Hemen Ara</a>
     </div>
 
-    <script src="script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIeyxfssrkl7nPo5C-Mk8lw9XSiPOmd20&libraries=places&callback=initMap" async defer></script>
+    
+    <script src="./script.js"></script>
 </body>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIeyxfssrkl7nPo5C-Mk8lw9XSiPOmd20&libraries=places&callback=initMap" async defer></script>
-
-    <script src="script.js"></script>
-</body>
-</html>
 </html>
