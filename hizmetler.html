@@ -10,6 +10,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .plan-grid.district-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        .plan-grid.district-grid .plan-card {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .plan-grid.district-grid h3 {
+            margin: 0;
+        }
+        .plan-grid.district-grid a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: block;
+        }
+        .plan-grid.district-grid a:hover {
+            color: var(--accent);
+        }
+    </style>
 </head>
 <body class="inner-page">
     <header class="site-header compact">
@@ -64,81 +86,32 @@
                     <p class="eyebrow">Hizmet Bölgelerimiz</p>
                     <h2>Avrupa Yakası İlçeleri (25 Adet)</h2>
                 </div>
-                <div class="card-grid" style="--grid-cols: 5;"> <article class="plan-card">
-                        <a href="arnavutkoy-kurye.html"><h3>Arnavutköy</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="avcilar-kurye.html"><h3>Avcılar</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="bagcilar-kurye.html"><h3>Bağcılar</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="bahcelievler-kurye.html"><h3>Bahçelievler</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="bakirkoy-kurye.html"><h3>Bakırköy</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="basaksehir-kurye.html"><h3>Başakşehir</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="bayrampasa-kurye.html"><h3>Bayrampaşa</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="besiktas-kurye.html"><h3>Beşiktaş</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="beylikduzu-kurye.html"><h3>Beylikdüzü</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="beyoglu-kurye.html"><h3>Beyoğlu</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="buyukcekmece-kurye.html"><h3>Büyükçekmece</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="catalca-kurye.html"><h3>Çatalca</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="esenler-kurye.html"><h3>Esenler</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="esenyurt-kurye.html"><h3>Esenyurt</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="eyupsultan-kurye.html"><h3>Eyüpsultan</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="fatih-kurye.html"><h3>Fatih</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="gaziosmanpasa-kurye.html"><h3>Gaziosmanpaşa</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="gungoren-kurye.html"><h3>Güngören</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="kagithane-kurye.html"><h3>Kağıthane</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="kucukcekmece-kurye.html"><h3>Küçükçekmece</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="sariyer-kurye.html"><h3>Sarıyer</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="silivri-kurye.html"><h3>Silivri</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="sultangazi-kurye.html"><h3>Sultangazi</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="sisli-kurye.html"><h3>Şişli</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="zeytinburnu-kurye.html"><h3>Zeytinburnu</h3></a>
-                    </article>
+                <div class="plan-grid district-grid">
+                    <article class="plan-card"><a href="arnavutkoy-kurye.html"><h3>Arnavutköy</h3></a></article>
+                    <article class="plan-card"><a href="avcilar-kurye.html"><h3>Avcılar</h3></a></article>
+                    <article class="plan-card"><a href="bagcilar-kurye.html"><h3>Bağcılar</h3></a></article>
+                    <article class="plan-card"><a href="bahcelievler-kurye.html"><h3>Bahçelievler</h3></a></article>
+                    <article class="plan-card"><a href="bakirkoy-kurye.html"><h3>Bakırköy</h3></a></article>
+                    <article class="plan-card"><a href="basaksehir-kurye.html"><h3>Başakşehir</h3></a></article>
+                    <article class="plan-card"><a href="bayrampasa-kurye.html"><h3>Bayrampaşa</h3></a></article>
+                    <article class="plan-card"><a href="besiktas-kurye.html"><h3>Beşiktaş</h3></a></article>
+                    <article class="plan-card"><a href="beylikduzu-kurye.html"><h3>Beylikdüzü</h3></a></article>
+                    <article class="plan-card"><a href="beyoglu-kurye.html"><h3>Beyoğlu</h3></a></article>
+                    <article class="plan-card"><a href="buyukcekmece-kurye.html"><h3>Büyükçekmece</h3></a></article>
+                    <article class="plan-card"><a href="catalca-kurye.html"><h3>Çatalca</h3></a></article>
+                    <article class="plan-card"><a href="esenler-kurye.html"><h3>Esenler</h3></a></article>
+                    <article class="plan-card"><a href="esenyurt-kurye.html"><h3>Esenyurt</h3></a></article>
+                    <article class="plan-card"><a href="eyupsultan-kurye.html"><h3>Eyüpsultan</h3></a></article>
+                    <article class="plan-card"><a href="fatih-kurye.html"><h3>Fatih</h3></a></article>
+                    <article class="plan-card"><a href="gaziosmanpasa-kurye.html"><h3>Gaziosmanpaşa</h3></a></article>
+                    <article class="plan-card"><a href="gungoren-kurye.html"><h3>Güngören</h3></a></article>
+                    <article class="plan-card"><a href="kagithane-kurye.html"><h3>Kağıthane</h3></a></article>
+                    <article class="plan-card"><a href="kucukcekmece-kurye.html"><h3>Küçükçekmece</h3></a></article>
+                    <article class="plan-card"><a href="sariyer-kurye.html"><h3>Sarıyer</h3></a></article>
+                    <article class="plan-card"><a href="silivri-kurye.html"><h3>Silivri</h3></a></article>
+                    <article class="plan-card"><a href="sultangazi-kurye.html"><h3>Sultangazi</h3></a></article>
+                    <article class="plan-card"><a href="sisli-kurye.html"><h3>Şişli</h3></a></article>
+                    <article class="plan-card"><a href="zeytinburnu-kurye.html"><h3>Zeytinburnu</h3></a></article>
                 </div>
             </div>
         </section>
@@ -148,48 +121,21 @@
                 <div class="section-heading">
                     <h2>Anadolu Yakası İlçeleri (14 Adet)</h2>
                 </div>
-                <div class="card-grid" style="--grid-cols: 5;"> <article class="plan-card">
-                        <a href="adalar-kurye.html"><h3>Adalar</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="atasehir-kurye.html"><h3>Ataşehir</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="beykoz-kurye.html"><h3>Beykoz</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="cekmekoy-kurye.html"><h3>Çekmeköy</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="kadikoy-kurye.html"><h3>Kadıköy</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="kartal-kurye.html"><h3>Kartal</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="maltepe-kurye.html"><h3>Maltepe</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="pendik-kurye.html"><h3>Pendik</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="sancaktepe-kurye.html"><h3>Sancaktepe</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="sultanbeyli-kurye.html"><h3>Sultanbeyli</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="sile-kurye.html"><h3>Şile</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="tuzla-kurye.html"><h3>Tuzla</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="umraniye-kurye.html"><h3>Ümraniye</h3></a>
-                    </article>
-                    <article class="plan-card">
-                        <a href="uskudar-kurye.html"><h3>Üsküdar</h3></a>
-                    </article>
+                <div class="plan-grid district-grid">
+                    <article class="plan-card"><a href="adalar-kurye.html"><h3>Adalar</h3></a></article>
+                    <article class="plan-card"><a href="atasehir-kurye.html"><h3>Ataşehir</h3></a></article>
+                    <article class="plan-card"><a href="beykoz-kurye.html"><h3>Beykoz</h3></a></article>
+                    <article class="plan-card"><a href="cekmekoy-kurye.html"><h3>Çekmeköy</h3></a></article>
+                    <article class="plan-card"><a href="kadikoy-kurye.html"><h3>Kadıköy</h3></a></article>
+                    <article class="plan-card"><a href="kartal-kurye.html"><h3>Kartal</h3></a></article>
+                    <article class="plan-card"><a href="maltepe-kurye.html"><h3>Maltepe</h3></a></article>
+                    <article class="plan-card"><a href="pendik-kurye.html"><h3>Pendik</h3></a></article>
+                    <article class="plan-card"><a href="sancaktepe-kurye.html"><h3>Sancaktepe</h3></a></article>
+                    <article class="plan-card"><a href="sultanbeyli-kurye.html"><h3>Sultanbeyli</h3></a></article>
+                    <article class="plan-card"><a href="sile-kurye.html"><h3>Şile</h3></a></article>
+                    <article class="plan-card"><a href="tuzla-kurye.html"><h3>Tuzla</h3></a></article>
+                    <article class="plan-card"><a href="umraniye-kurye.html"><h3>Ümraniye</h3></a></article>
+                    <article class="plan-card"><a href="uskudar-kurye.html"><h3>Üsküdar</h3></a></article>
                 </div>
             </div>
         </section>
