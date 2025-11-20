@@ -3,98 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hızlı Adam Express Kurye iletişim bilgileri, WhatsApp ve çağrı merkezi hattı.">
+    <meta name="keywords" content="Hızlı Adam Express Kurye, Şişli kurye, Etiler kurye, Beşiktaş kurye, Sarıyer kurye, Levent kurye">
     <title>İletişim | Hızlı Adam Express Kurye</title>
-    <meta name="description" content="Hızlı Adam Kurye iletişim bilgileri. WhatsApp, Telefon ve Adres bilgileri. 7/24 Kurye Çağır.">
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
+<body class="inner-page">
     <header class="site-header compact">
         <div class="container">
             <nav class="main-nav">
                 <div class="logo">
                     <span class="logo-mark">HA</span>
                     <div>
-                        <p>Hızlı Adam</p>
-                        <small>Express Kurye</small>
+                        <p>Hızlı Adam Express Kurye</p>
+                        <small>Kurumsal Operasyon</small>
                     </div>
                 </div>
-                <button class="menu-toggle"><span></span><span></span><span></span></button>
-                
-                <div class="nav-panel">
+                <button class="menu-toggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Menüyü Aç">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="nav-panel" id="primaryNav">
                     <div class="nav-links">
                         <a href="index.html">Anasayfa</a>
-                        <a href="index.html#bolgeler">Hizmet Bölgeleri</a>
-                        <a href="index.html#fiyat">Fiyat Hesapla</a>
+                        <a href="hizmetler.html">Hizmetlerimiz</a>
+                        <a href="etiler-kurye.html">Etiler Kurye</a>
                         <a href="iletisim.html" class="active">İletişim</a>
                     </div>
                     <div class="nav-cta">
-                        <a href="tel:05403022628" class="btn ghost">0540 302 26 28</a>
+                        <a href="https://wa.me/905423022628" target="_blank" class="btn primary notify-trigger" data-message="WhatsApp hattımıza yönlendiriliyorsunuz.">WhatsApp</a>
+                        <a href="tel:05423022628" class="btn ghost notify-trigger" data-message="Operasyon masamız sizi arayacak.">Ara</a>
                     </div>
                 </div>
             </nav>
-
-            <div class="header-grid">
+            <div class="page-hero">
                 <div>
-                    <p class="eyebrow">BİZE ULAŞIN</p>
-                    <h1>Operasyon Merkezi 7/24 Aktif</h1>
-                    <p class="lead">İstanbul içi motorlu kurye ihtiyaçlarınız için bir telefon uzağınızdayız. WhatsApp üzerinden veya arayarak anında kurye talebi oluşturabilirsiniz.</p>
-                    
+                    <p class="eyebrow">İletişim</p>
+                    <h1>Operasyon merkezi 7/24 aktif</h1>
+                    <p class="lead">Tek tıkla WhatsApp, telefon veya form üzerinden bize ulaşabilir, kurumsal teklifinizi anında alabilirsiniz.</p>
                     <div class="cta-group">
-                        <a href="https://wa.me/905403022628" target="_blank" class="btn primary">WhatsApp</a>
-                        <a href="tel:05403022628" class="btn ghost">Bizi Arayın</a>
+                        <a href="https://wa.me/905423022628" target="_blank" class="btn primary notify-trigger" data-message="WhatsApp hattımıza yönlendiriliyorsunuz.">WhatsApp</a>
+                        <a href="#contact-form" class="btn ghost">Formu doldur</a>
                     </div>
                 </div>
-                
-                <div class="contact-image">
-                    <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?auto=format&fit=crop&w=800&q=80" alt="Çağrı Merkezi İletişim">
-                </div>
+                <figure class="hero-media">
+                    <img src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?auto=format&fit=crop&w=900&q=70" alt="İletişim ofis" loading="lazy">
+                    <figcaption>7/24 operasyon ekibi, daima çağrılarınızı bekler.</figcaption>
+                </figure>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="section contact">
+        <section class="section contact contact-page">
             <div class="container contact-grid">
-                
                 <div class="card contact-card">
-                    <h3>📍 İletişim Kanalları</h3>
-                    <p style="margin-bottom: 1.5rem;">Operasyon ekibimizle doğrudan görüşün.</p>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <strong>📞 Telefon:</strong><br>
-                        <a href="tel:05403022628" style="font-size: 1.2rem; color: var(--primary);">0540 302 26 28</a>
-                    </div>
+                    <h3>İletişim Kanalları</h3>
+                    <p><strong>Operasyon Telefon:</strong> <a href="tel:05423022628" class="notify-trigger" data-message="Operasyon masası sizi arıyor.">0542 302 26 28</a></p>
+                    <p><strong>Operasyon WhatsApp:</strong> <a href="https://wa.me/905423022628" target="_blank" class="notify-trigger" data-message="WhatsApp hattımıza yönlendiriliyorsunuz.">90 542 302 26 28</a></p>
+                    <p><strong>E-posta:</strong> <a href="mailto:operasyon@hizliadamkurye.com">operasyon@hizliadamkurye.com</a></p>
 
-                    <div style="margin-bottom: 1rem;">
-                        <strong>💬 WhatsApp Hattı:</strong><br>
-                        <a href="https://wa.me/905403022628" target="_blank" style="color: var(--accent); font-weight: bold;">Mesaj Gönder (Tıkla)</a>
-                    </div>
-
-                    <div style="margin-bottom: 1rem;">
-                        <strong>✉️ E-posta:</strong><br>
-                        <a href="mailto:info@hizliadamkurye.com">info@hizliadamkurye.com</a>
-                    </div>
-
-                    <div>
-                        <strong>🏢 Merkez Ofis:</strong><br>
-                        Mecidiyeköy Mah. Büyükdere Cad. No:12<br>Şişli / İstanbul
-                    </div>
+                    <h3 style="margin-top: 2rem;">Adresimiz</h3>
+                    <p>Maslak Mah. Sümer Sok. No: 4/5 Sarıyer/İstanbul</p>
+                    <p class="mini-label">Operasyon merkezimizi ziyaret etmek için randevu alınız.</p>
                 </div>
-
-                <div class="card">
-                    <h3>📝 Hızlı Mesaj Gönder</h3>
-                    <form class="contact-form" action="https://wa.me/905403022628" method="get" target="_blank">
-                        <label for="text">Mesajınız</label>
-                        <textarea name="text" id="text" rows="5" placeholder="Merhaba, kurumsal kurye anlaşması için bilgi almak istiyorum..." style="width: 100%; padding: 1rem; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 1rem;"></textarea>
-                        
-                        <button type="submit" class="btn primary full-width">WhatsApp Üzerinden Gönder</button>
+                <div class="card contact-form" id="contact-form">
+                    <h3>Hemen Teklif İste</h3>
+                    <p>Firma adınızı, telefon numaranızı ve ihtiyacınızı girin, 5 dakika içinde size özel teklif sunalım.</p>
+                    <form>
+                        <div class="form-group">
+                            <label for="company">Firma Adı</label>
+                            <input type="text" name="company" id="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon Numarası</label>
+                            <input type="tel" name="phone" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="needs">İhtiyaç/Not</label>
+                            <textarea name="needs" id="needs" rows="3" placeholder="Örn: Aylık 50-70 adet VIP kurye ihtiyacımız var."></textarea>
+                        </div>
+                        <button type="submit" class="btn primary full-width">Talebi Gönder</button>
                     </form>
                 </div>
+            </div>
+        </section>
 
+        <section class="section map-section">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Konum</p>
+                    <h2>Operasyon Merkezi</h2>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1502.975417085186!2d29.00699263435427!3d41.08207912440182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5ad5d806d3d%3A0x5d1ad0f5bd8b7cb!2sMaslak!5e0!3m2!1str!2str!4v1700000000000" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </section>
     </main>
@@ -102,21 +109,22 @@
     <footer class="site-footer">
         <div class="container footer-grid">
             <div>
-                <h3>Hızlı Adam Express</h3>
+                <p class="eyebrow">Hızlı Adam Express Kurye</p>
                 <p>Kurumsal teslimat ihtiyaçlarınız için tek noktadan yönetilen profesyonel kurye hizmeti.</p>
             </div>
             <div class="footer-links">
                 <a href="index.html">Anasayfa</a>
-                <a href="index.html#fiyat">Fiyat Hesapla</a>
+                <a href="hizmetler.html">Hizmetler</a>
+                <a href="etiler-kurye.html">Etiler Kurye</a>
                 <a href="iletisim.html" class="active">İletişim</a>
             </div>
-            <p>© 2025 Tüm Hakları Saklıdır.</p>
         </div>
+        <p class="legal">&copy; 2025 Motosikletli Kurye Hizmeti. Tüm hakları saklıdır.</p>
     </footer>
 
     <div class="mobile-action-bar">
-        <a href="https://wa.me/905403022628" class="mobile-btn whatsapp">WhatsApp</a>
-        <a href="tel:05403022628" class="mobile-btn call">Bizi Arayın</a>
+        <a href="https://wa.me/905423022628" target="_blank" class="mobile-btn whatsapp notify-trigger" data-message="WhatsApp hattımıza yönlendiriliyorsunuz.">WhatsApp</a>
+        <a href="tel:05423022628" class="mobile-btn call">Hemen Ara</a>
     </div>
 
     <script src="script.js"></script>
