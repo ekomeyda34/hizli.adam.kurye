@@ -28,7 +28,19 @@ const CONTACT_NUMBERS = {
     ]
 };
 
-const generateRandomDistance = () => Math.floor(Math.random() * 20) + 1;
+// YENİ FİYATLANDIRMA KURALLARI
+const PRICING = {
+    normal: { name: "Normal Kurye", base: 125, perKm: 45 },
+    express: { name: "Express Kurye", base: 200, perKm: 50 },
+    vip: { name: "VIP Express Kurye", base: 250, perKm: 60 }
+};
+
+// Mesafeyi simüle eden yeni fonksiyon (Gerçek bir harita API'si olmadan çalışmak için)
+const generateSimulatedDistance = () => {
+    // İstanbul içi 5 km ile 30 km arasında rastgele bir mesafe (küsuratlı)
+    return parseFloat(((Math.random() * 25) + 5).toFixed(1)); 
+};
+
 const formatDistance = (km) => `${km} km`;
 
 const showToast = (message) => {
@@ -36,32 +48,64 @@ const showToast = (message) => {
     toastMessage.textContent = message;
     toast.classList.add("show");
     
-    // Auto hide after 3 seconds
     toastTimer = setTimeout(() => {
         toast.classList.remove("show");
     }, 3000);
 };
 
-const buildWhatsappMessage = ({ pickup, delivery, distance, price }) => (
-    `Yeni Kurye Talebi:\n` +
-    `Alış Adresi: ${pickup}\n` +
-    `Teslimat Adresi: ${delivery}\n` +
-    `Mesafe: ${distance} km\n` +
-    `Fiyat: ${price} TL`
-);
+const calculatePrice = ({ pickup, delivery, serviceType, itemType }) => {
+    // Simüle edilmiş mesafeyi al
+    const distance = generateSimulatedDistance(); 
+    
+    const service = PRICING[serviceType] || PRICING.normal;
+    let totalPrice = 0;
+    
+    // Açılış ücreti (İlk 1 km dahil)
+    totalPrice += service.base;
+
+    // Kalan her km için ek ücret (1 km üzeri için)
+    if (distance > 1) {
+        const extraDistance = distance - 1;
+        totalPrice += extraDistance * service.perKm;
+    }
+    
+    // Koli için ek ücret
+    if (itemType === 'package') {
+        totalPrice += 15; // Koli/Paket için 15 TL ek ücret
+    }
+    
+    return { 
+        pickup, 
+        delivery, 
+        distance, 
+        serviceType: service.name,
+        itemType,
+        price: Math.ceil(totalPrice) // Fiyatı üste yuvarla
+    };
+};
+
+const buildWhatsappMessage = (payload) => {
+    const itemLabel = payload.itemType === 'package' ? 'Koli/Paket' : 'Evrak/Doküman';
+
+    return (
+        `YENİ HESAPLANAN KURYE TALEBİ:\n` +
+        `----------------------------------------\n` +
+        `Hizmet Tipi: ${payload.serviceType}\n` +
+        `Gönderi Tipi: ${itemLabel}\n` +
+        `Alış Adresi: ${payload.pickup}\n` +
+        `Teslimat Adresi: ${payload.delivery}\n` +
+        `Hesaplanan Mesafe: ${payload.distance} km\n` +
+        `\n` +
+        `TAHMİNİ FİYAT: ${payload.price} TL\n` +
+        `----------------------------------------\n` +
+        `Lütfen teyit için bekleyiniz.`
+    );
+};
 
 const submitToWhatsapp = (payload) => {
     // Fiyat hesaplama formu sadece ilk WhatsApp numarasına gönderim yapar
     const whatsappUrl = `https://wa.me/905403022628?text=${encodeURIComponent(buildWhatsappMessage(payload))}`;
     window.open(whatsappUrl, "_blank");
-};
-
-const calculatePrice = ({ pickup, delivery }) => {
-    const distance = generateRandomDistance();
-    const basePrice = distance * 5;
-    const baseDeliveryTime = 40;
-    const price = Math.floor(basePrice + baseDeliveryTime + (Math.random() * 20));
-    return { pickup, delivery, distance, price };
 };
 
 const showResult = ({ distance, price }) => {
@@ -71,21 +115,25 @@ const showResult = ({ distance, price }) => {
     priceForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
+// FORM SUBMIT OLAYI GÜNCELLENDİ
 priceForm?.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const data = new FormData(priceForm);
     const pickup = data.get("pickup")?.toString().trim() || "Belirtilmedi";
     const delivery = data.get("delivery")?.toString().trim() || "Belirtilmedi";
+    const serviceType = data.get("serviceType")?.toString().trim() || "normal";
+    const itemType = data.get("itemType")?.toString().trim() || "document";
 
     const submitButton = priceForm.querySelector("button[type='submit']");
     submitButton.disabled = true;
     submitButton.textContent = "Hesaplanıyor...";
 
     setTimeout(() => {
-        const result = calculatePrice({ pickup, delivery });
+        // Yeni parametrelerle hesaplamayı çalıştır
+        const result = calculatePrice({ pickup, delivery, serviceType, itemType });
         showResult(result);
-        submitToWhatsapp(result);
+        submitToWhatsapp(result); // Hesaplanan sonuçları WhatsApp'a gönder
 
         submitButton.disabled = false;
         submitButton.textContent = "Fiyatı Hesapla";
@@ -100,13 +148,19 @@ contactForm?.addEventListener("submit", (event) => {
     contactForm.reset();
 });
 
+// NOT: Tüm HTML dosyalarındaki sabit WhatsApp/Ara butonları da 
+// artık JS ile çalışacak şekilde güncellenmiştir (mobile-action-trigger class'ı ile).
+
 notifyTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-        const message = trigger.dataset.message;
-        if (message) {
-            showToast(message);
-        }
-    });
+    // Eski sabit linkli butonlar için:
+    if(trigger.tagName === 'A' && !trigger.classList.contains('mobile-action-trigger')) {
+         trigger.addEventListener("click", () => {
+            const message = trigger.dataset.message;
+            if (message) {
+                showToast(message);
+            }
+        });
+    }
 });
 
 const closeMenu = () => {
@@ -127,6 +181,8 @@ navLinks.forEach((link) => {
     });
 });
 
+// MODAL İŞLEMLERİ (Önceki istekten kalan)
+
 // Modal'ı açma fonksiyonu
 const openChoiceModal = (actionType) => {
     const choices = CONTACT_NUMBERS[actionType];
@@ -144,7 +200,6 @@ const openChoiceModal = (actionType) => {
         
         // Tıklamada toast gösterme
         link.addEventListener('click', () => {
-            // WhatsApp için toast mesajı
             const message = actionType === 'whatsapp' ? `WhatsApp hattı ${choice.number} açılıyor.` : `Numara ${choice.number} aranıyor.`;
             showToast(message);
             closeChoiceModal();
