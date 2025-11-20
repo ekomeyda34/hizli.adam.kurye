@@ -35,8 +35,8 @@
                         <a href="iletisim.html">İletişim</a>
                     </div>
                     <div class="nav-cta">
-                        <a href="https://wa.me/905403022628" target="_blank" class="btn primary notify-trigger" data-message="Operasyon ekibimiz WhatsApp üzerinden 5 dk içinde yanıt verir.">WhatsApp</a>
-                        <a href="tel:05403022628" class="btn ghost notify-trigger" data-message="Operasyon masamız sizi hemen arıyor.">Ara</a>
+                        <a href="#" class="btn primary mobile-action-trigger" data-action="whatsapp">WhatsApp</a>
+                        <a href="#" class="btn ghost mobile-action-trigger" data-action="call">Ara</a>
                     </div>
                 </div>
             </nav>
@@ -46,8 +46,8 @@
                     <h1>Şehrin en hızlı<br><span>kurye operasyonu</span></h1>
                     <p class="lead">7/24 aktif filo, tecrübeli sürücüler ve uçtan uca takip sistemi ile paketleriniz tam zamanında teslim edilir.</p>
                     <div class="cta-group">
-                        <a href="https://wa.me/905403022628" target="_blank" class="btn primary notify-trigger" data-message="WhatsApp üzerinden detayları aldık.">WhatsApp ile Teklif Al</a>
-                        <a href="tel:05403022628" class="btn ghost notify-trigger" data-message="Operasyon koordinatörümüz sizi aramak üzere.">0540 302 26 28</a>
+                        <a href="#" class="btn primary mobile-action-trigger" data-action="whatsapp">WhatsApp ile Teklif Al</a>
+                        <a href="#" class="btn ghost mobile-action-trigger" data-action="call">0540 302 26 28</a>
                     </div>
                     <ul class="trust-stats">
                         <li><strong>10.000+</strong><span>tamamlanan teslimat</span></li>
@@ -126,6 +126,18 @@
                         <label for="delivery">Teslimat Adresi</label>
                         <input type="text" id="delivery" name="delivery" placeholder="Örn. Kadıköy, İstanbul" required>
 
+                        <label for="serviceType">Kurye Hizmet Tipi</label>
+                        <select id="serviceType" name="serviceType" required>
+                            <option value="normal">Normal Kurye - Açılış 125 TL, KM 45 TL</option>
+                            <option value="express">Express Kurye - Açılış 200 TL, KM 50 TL</option>
+                            <option value="vip">VIP Express Kurye - Açılış 250 TL, KM 60 TL</option>
+                        </select>
+                        
+                        <label for="itemType">Gönderi Tipi</label>
+                        <select id="itemType" name="itemType" required>
+                            <option value="document">Evrak/Doküman</option>
+                            <option value="package">Koli/Paket (Ekstra Ücret Olabilir)</option>
+                        </select>
                         <button type="submit" class="btn primary full-width">Fiyatı Hesapla</button>
                         <p class="form-note">Gerçek fiyat operasyon ekibimiz tarafından onaylanır.</p>
                     </form>
@@ -150,11 +162,11 @@
                     <p>İstanbul merkezli ekip, tüm Türkiye’de çözüm ortakları ile hizmet verir.</p>
                 </div>
                 <div class="contact-card card">
-                    <p><strong>Telefon:</strong> <a href="tel:05403022628">0540 302 26 28</a></p>
+                    <p><strong>Telefon:</strong> <a href="#" class="mobile-action-trigger" data-action="call">0540 302 26 28</a></p>
                     <p><strong>E-posta:</strong> <a href="mailto:info@kuryemerkezi.com">info@kuryemerkezi.com</a></p>
                     <p><strong>Adres:</strong> Maslak Mah., Sarıyer / İstanbul</p>
                     <div class="cta-group">
-                        <a href="https://wa.me/905403022628" target="_blank" class="btn primary">WhatsApp</a>
+                        <a href="#" class="btn primary mobile-action-trigger" data-action="whatsapp">WhatsApp</a>
                         <a href="#price" class="btn ghost">Teklif formu</a>
                     </div>
                 </div>
@@ -172,7 +184,7 @@
                 <a href="#price">Fiyatlandırma</a>
                 <a href="etiler-kurye.html">Etiler Kurye</a>
                 <a href="#iletisim">İletişim</a>
-                <a href="https://wa.me/905403022628" target="_blank">WhatsApp</a>
+                <a href="#" class="mobile-action-trigger" data-action="whatsapp">WhatsApp</a>
             </div>
         </div>
         <p class="legal">© 2025 Motosikletli Kurye Hizmeti. Tüm hakları saklıdır.</p>
