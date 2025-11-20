@@ -1,197 +1,188 @@
-const menuToggle = document.querySelector(".menu-toggle");
 const priceForm = document.getElementById("priceForm");
 const priceResult = document.getElementById("priceResult");
 const distanceField = document.getElementById("distance");
 const priceField = document.getElementById("price");
-const koliWarning = document.getElementById("koliWarning");
-const whatsappLink = document.getElementById("whatsappLink");
-const courierTypeDropdown = document.getElementById("courierType");
-const shipmentTypeDropdown = document.getElementById("shipmentType");
+const toast = document.getElementById("toast");
+const toastMessage = document.getElementById("toastMessage");
+const notifyTriggers = document.querySelectorAll(".notify-trigger");
+const contactForm = document.querySelector(".contact-form");
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelectorAll(".nav-links a");
+let toastTimer;
 
-// Global değişken: Hesaplanan mesafeyi kaydeder
-let currentDistanceKm = 0;
-let pickupAddress = "";
-let deliveryAddress = "";
+// Yeni Modal Elementleri ve Numaralar
+const mobileActionTriggers = document.querySelectorAll(".mobile-action-trigger");
+const choiceModal = document.getElementById("choiceModal");
+const choiceTitle = document.getElementById("choiceTitle");
+const choiceOptionsContainer = document.getElementById("choiceOptions");
+const closeModalButton = document.getElementById("closeModal");
 
-
-// --- 1. HARİTA API BAŞLATMA ---
-let pickupAutocomplete;
-let deliveryAutocomplete;
-let directionsService;
-
-function initMap() {
-    directionsService = new google.maps.DirectionsService();
-    
-    const pickupInput = document.querySelector('input[name="pickup"]');
-    const deliveryInput = document.querySelector('input[name="delivery"]');
-    
-    const options = {
-        componentRestrictions: { country: "tr" },
-        fields: ["geometry", "name"],
-        types: ["geocode", "establishment"]
-    };
-
-    if (pickupInput && deliveryInput) {
-        pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, options);
-        deliveryAutocomplete = new google.maps.places.Autocomplete(deliveryInput, options);
-
-        // Adres değişirse önceki mesafeyi sıfırla
-        pickupInput.addEventListener("change", () => { currentDistanceKm = 0; priceResult.classList.add("hidden"); });
-        deliveryInput.addEventListener("change", () => { currentDistanceKm = 0; priceResult.classList.add("hidden"); });
-    }
-}
-
-
-// --- 2. FİYAT HESAPLAMA MANTIKLARI ---
-
-/**
- * Mevcut mesafeyi ve seçili kurye tipini kullanarak fiyatı hesaplar ve ekrana yazar.
- * @param {number} distanceKm - Hesaplamada kullanılacak mesafe (KM)
- */
-const updatePriceDisplay = (distanceKm) => {
-    const courierType = courierTypeDropdown.value;
-    const shipmentType = shipmentTypeDropdown.value;
-    
-    let totalPrice = 0;
-    let serviceName = "";
-    
-    // --- FİYAT TARİFESİ (BURADAN DÜZELTME YAPILIR) ---
-    if (courierType === "normal") {
-        // Normal: Açılış 125 TL + 45 TL/km
-        totalPrice = 125 + (parseFloat(distanceKm) * 45); 
-        serviceName = "Normal Kurye";
-    } 
-    else if (courierType === "express") {
-        // Ekspres: Açılış 200 TL + 50 TL/km
-        totalPrice = 200 + (parseFloat(distanceKm) * 50);
-        serviceName = "Ekspres Kurye";
-    } 
-    else if (courierType === "vip") {
-        // VIP: Açılış 250 TL + 60 TL/km
-        totalPrice = 250 + (parseFloat(distanceKm) * 60);
-        serviceName = "VIP Kurye";
-    }
-
-    // Fiyatı tam sayıya yuvarla
-    totalPrice = Math.ceil(totalPrice);
-
-    // Sonuçları Ekrana Yaz
-    distanceField.textContent = `${distanceKm.toFixed(1)} km`;
-    priceField.textContent = totalPrice.toLocaleString('tr-TR');
-    
-    // KOLİ UYARISI
-    let whatsappNote = "";
-    if (shipmentType === "Koli") {
-        koliWarning.classList.remove("hidden");
-        whatsappNote = "\n⚠️ *NOT:* Gönderi 'Koli' olduğu için ürün görselini iletiyorum. Fiyat güncellenebilir.";
-    } else {
-        koliWarning.classList.add("hidden");
-    }
-
-    priceResult.classList.remove("hidden");
-    
-    // WhatsApp Linkini Oluştur
-    const msg = `Merhaba, web sitenizden fiyat teklifi aldım.\n\n🚀 *Hizmet:* ${serviceName}\n📦 *İçerik:* ${shipmentType}\n📍 *Nereden:* ${pickupAddress}\n📍 *Nereye:* ${deliveryAddress}\n🛣️ *Mesafe:* ${distanceKm.toFixed(1)} km\n💰 *Tahmini Tutar:* ${totalPrice} TL${whatsappNote}`;
-    
-    whatsappLink.href = `https://wa.me/905403022628?text=${encodeURIComponent(msg)}`;
+const CONTACT_NUMBERS = {
+    whatsapp: [
+        { label: "WhatsApp 1 (540 302 26 28)", number: "905403022628", prefix: "https://wa.me/" },
+        { label: "WhatsApp 2 (542 302 26 28)", number: "905423022628", prefix: "https://wa.me/" }
+    ],
+    call: [
+        { label: "Bizi Arayın (540 302 26 28)", number: "05403022628", prefix: "tel:" },
+        { label: "Bizi Arayın (542 302 26 28)", number: "05423022628", prefix: "tel:" }
+    ]
 };
 
+const generateRandomDistance = () => Math.floor(Math.random() * 20) + 1;
+const formatDistance = (km) => `${km} km`;
 
-/**
- * Google Maps API'yi tetikler, mesafeyi alır ve fiyatı günceller.
- */
-const calculateDistanceAndPrice = (e) => {
-    e.preventDefault();
+const showToast = (message) => {
+    clearTimeout(toastTimer);
+    toastMessage.textContent = message;
+    toast.classList.add("show");
+    
+    // Auto hide after 3 seconds
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 3000);
+};
 
-    const pickupVal = document.querySelector('input[name="pickup"]').value;
-    const deliveryVal = document.querySelector('input[name="delivery"]').value;
+const buildWhatsappMessage = ({ pickup, delivery, distance, price }) => (
+    `Yeni Kurye Talebi:\n` +
+    `Alış Adresi: ${pickup}\n` +
+    `Teslimat Adresi: ${delivery}\n` +
+    `Mesafe: ${distance} km\n` +
+    `Fiyat: ${price} TL`
+);
 
-    if (!pickupVal || !deliveryVal) {
-        alert("Lütfen çıkış ve varış adreslerini giriniz.");
-        return;
-    }
+const submitToWhatsapp = (payload) => {
+    // Fiyat hesaplama formu sadece ilk WhatsApp numarasına gönderim yapar
+    const whatsappUrl = `https://wa.me/905403022628?text=${encodeURIComponent(buildWhatsappMessage(payload))}`;
+    window.open(whatsappUrl, "_blank");
+};
 
-    pickupAddress = pickupVal;
-    deliveryAddress = deliveryVal;
+const calculatePrice = ({ pickup, delivery }) => {
+    const distance = generateRandomDistance();
+    const basePrice = distance * 5;
+    const baseDeliveryTime = 40;
+    const price = Math.floor(basePrice + baseDeliveryTime + (Math.random() * 20));
+    return { pickup, delivery, distance, price };
+};
 
-    const submitBtn = priceForm.querySelector("button");
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = "Hesaplanıyor...";
-    submitBtn.disabled = true;
+const showResult = ({ distance, price }) => {
+    distanceField.textContent = formatDistance(distance);
+    priceField.textContent = price;
+    priceResult.classList.remove("hidden");
+    priceForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
 
-    const request = {
-        origin: pickupVal,
-        destination: deliveryVal,
-        travelMode: google.maps.TravelMode.DRIVING,
-        unitSystem: google.maps.UnitSystem.METRIC
-    };
+priceForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-    directionsService.route(request, (result, status) => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+    const data = new FormData(priceForm);
+    const pickup = data.get("pickup")?.toString().trim() || "Belirtilmedi";
+    const delivery = data.get("delivery")?.toString().trim() || "Belirtilmedi";
 
-        if (status === google.maps.DirectionsStatus.OK) {
-            const distanceMeters = result.routes[0].legs[0].distance.value;
-            let distanceKm = (distanceMeters / 1000);
-            
-            // Minimum mesafe 1 km olsun
-            if (distanceKm < 1) { distanceKm = 1; }
+    const submitButton = priceForm.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+    submitButton.textContent = "Hesaplanıyor...";
 
-            // Mesafeyi global değişkene kaydet
-            currentDistanceKm = distanceKm;
-            
-            // Fiyatı hesapla ve göster
-            updatePriceDisplay(currentDistanceKm);
+    setTimeout(() => {
+        const result = calculatePrice({ pickup, delivery });
+        showResult(result);
+        submitToWhatsapp(result);
 
-        } else {
-            alert("Mesafe hesaplanamadı. Lütfen adresleri listeden seçerek tekrar deneyiniz.");
-            currentDistanceKm = 0;
-            priceResult.classList.add("hidden");
+        submitButton.disabled = false;
+        submitButton.textContent = "Fiyatı Hesapla";
+    }, 600);
+});
+
+contactForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(contactForm);
+    const company = data.get("company")?.toString().trim() || "Şirket";
+    showToast(`${company} kaydedildi. Operasyon ekibi kısa sürede dönüş yapacak.`);
+    contactForm.reset();
+});
+
+notifyTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+        const message = trigger.dataset.message;
+        if (message) {
+            showToast(message);
         }
     });
+});
+
+const closeMenu = () => {
+    document.body.classList.remove("nav-open");
+    menuToggle?.setAttribute("aria-expanded", "false");
 };
 
-
-// --- 3. OLAY DİNLEYİCİLERİ ---
-
-// Butona basıldığında tam hesaplama başlar (API'yi çağırır)
-priceForm?.addEventListener("submit", calculateDistanceAndPrice);
-
-// Kurye Tipi değiştiğinde fiyatı otomatik güncelle
-courierTypeDropdown?.addEventListener("change", () => {
-    // Eğer daha önce mesafe hesaplandıysa
-    if (currentDistanceKm > 0) {
-        updatePriceDisplay(currentDistanceKm); // Hızlıca güncelle
-    }
+menuToggle?.addEventListener("click", () => {
+    const isOpen = document.body.classList.toggle("nav-open");
+    menuToggle.setAttribute("aria-expanded", isOpen.toString());
 });
 
-// Gönderi Tipi (Koli/Evrak) değiştiğinde fiyatı otomatik güncelle (Koli uyarısı için)
-shipmentTypeDropdown?.addEventListener("change", () => {
-    // Eğer daha önce mesafe hesaplandıysa
-    if (currentDistanceKm > 0) {
-        updatePriceDisplay(currentDistanceKm); // Hızlıca güncelle
-    }
-});
-
-// Mobil Menü Mantığı
-menuToggle?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    document.body.classList.toggle("nav-open");
-});
-
-document.addEventListener("click", (e) => {
-    if (document.body.classList.contains("nav-open") && 
-        !e.target.closest(".nav-panel") && 
-        !e.target.closest(".menu-toggle")) {
-        document.body.classList.remove("nav-open");
-    }
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
+navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-        document.body.classList.remove("nav-open");
+        if (window.innerWidth <= 768) {
+            closeMenu();
+        }
     });
 });
 
-// Google Maps API'nin initMap fonksiyonunu bulması için zorunlu
-window.initMap = initMap;
+// Modal'ı açma fonksiyonu
+const openChoiceModal = (actionType) => {
+    const choices = CONTACT_NUMBERS[actionType];
+    const titleText = actionType === 'whatsapp' ? 'Lütfen WhatsApp hattınızı seçin' : 'Lütfen aramak istediğiniz numarayı seçin';
+
+    choiceTitle.textContent = titleText;
+    choiceOptionsContainer.innerHTML = ''; // Önceki seçenekleri temizle
+
+    choices.forEach(choice => {
+        const link = document.createElement('a');
+        link.href = choice.prefix + choice.number;
+        link.target = actionType === 'whatsapp' ? '_blank' : '_self';
+        link.className = `choice-option ${actionType}`;
+        link.textContent = choice.label;
+        
+        // Tıklamada toast gösterme
+        link.addEventListener('click', () => {
+            // WhatsApp için toast mesajı
+            const message = actionType === 'whatsapp' ? `WhatsApp hattı ${choice.number} açılıyor.` : `Numara ${choice.number} aranıyor.`;
+            showToast(message);
+            closeChoiceModal();
+        });
+
+        choiceOptionsContainer.appendChild(link);
+    });
+
+    choiceModal.classList.remove('hidden');
+    // Animasyon için kısa bir gecikme
+    setTimeout(() => choiceModal.classList.add('show'), 10); 
+};
+
+// Modal'ı kapatma fonksiyonu
+const closeChoiceModal = () => {
+    choiceModal.classList.remove('show');
+    // Animasyon tamamlandıktan sonra gizle
+    setTimeout(() => choiceModal.classList.add('hidden'), 300); 
+};
+
+// Mobil aksiyon tetikleyicilerini dinle
+mobileActionTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (event) => {
+        event.preventDefault(); // Varsayılan link aksiyonunu engelle
+        const actionType = trigger.dataset.action;
+        if (actionType) {
+            openChoiceModal(actionType);
+        }
+    });
+});
+
+// Modal kapatma butonu
+closeModalButton.addEventListener('click', closeChoiceModal);
+
+// Modal dışına tıklayınca kapatma
+choiceModal.addEventListener('click', (event) => {
+    // Sadece modalın kendisine tıklanırsa kapat (içeriğe tıklanırsa değil)
+    if (event.target.id === 'choiceModal') {
+        closeChoiceModal();
+    }
+});
