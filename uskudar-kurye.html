@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Üsküdar kurye hizmetleri: Çengelköy, Beylerbeyi, Altunizade ve Üsküdar merkezde 7/24 motorlu kurye ve ekspres teslimat.">
+    <meta name="keywords" content="Üsküdar kurye, Çengelköy kurye, Beylerbeyi kurye, Altunizade kurye, Kuzguncuk moto kurye, Libadiye kurye">
+    <title>Üsküdar Kurye | Hızlı Adam Express</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="inner-page">
+    <header class="site-header compact">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <span class="logo-mark">HA</span>
+                    <div>
+                        <p>Hızlı Adam Express Kurye</p>
+                        <small>Kurumsal Operasyon</small>
+                    </div>
+                </div>
+                <button class="menu-toggle" aria-expanded="false" aria-label="Menüyü Aç">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="nav-panel" id="primaryNav">
+                    <div class="nav-links">
+                        <a href="index.html">Anasayfa</a>
+                        <a href="hizmetler.html">Hizmetlerimiz</a>
+                        <a href="uskudar-kurye.html" class="active">Üsküdar Kurye</a>
+                        <a href="iletisim.html">İletişim</a>
+                    </div>
+                    <div class="nav-cta">
+                        <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="btn primary">WhatsApp</a>
+                        <a href="javascript:void(0)" onclick="openActionModal('call')" class="btn ghost">Ara</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="page-hero">
+                <div>
+                    <p class="eyebrow">Köprü Bağlantısı</p>
+                    <h1>Üsküdar – Çengelköy – Altunizade Hattı</h1>
+                    <p class="lead">Anadolu Yakası'nın Avrupa'ya açılan kapısı Üsküdar'da, sahil hattını ve köprü bağlantılarını en iyi kullanan kurye ekibi.</p>
+                    <div class="cta-group">
+                        <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="btn primary">Kurye Çağır</a>
+                        <a href="#uskudar-detay" class="btn ghost">Bölge Detayları</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="uskudar-detay">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Üsküdar Operasyonu</p>
+                    <h2>Boğaz Hattı ve İş Merkezleri</h2>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>🌉 Altunizade & Kısıklı</h3>
+                        <p>Plazalar ve holding merkezlerinin bulunduğu bölgede kurumsal evrak trafiği için motorlu kurye desteği.</p>
+                    </article>
+                    <article class="card">
+                        <h3>⚓ Merkez & Marmaray</h3>
+                        <p>Üsküdar Meydan ve Marmaray çevresindeki işletmelerden acil paket alımı ve dağıtımı.</p>
+                    </article>
+                    <article class="card">
+                        <h3>🌊 Boğaz Hattı</h3>
+                        <p>Kuzguncuk, Beylerbeyi ve Çengelköy trafiğinde sahil yolunu verimli kullanarak hızlı servis.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section highlight">
+            <div class="container highlight-grid">
+                <div>
+                    <p class="eyebrow">Avantajlar</p>
+                    <h2>Hızlı Köprü Geçişi</h2>
+                    <ul class="steps">
+                        <li><span>15 Temmuz</span>Köprüye en yakın ekiplerle anında müdahale.</li>
+                        <li><span>Avrasya</span>Tünel çıkışına yakın konumlanma.</li>
+                        <li><span>7/24</span>Boğaz hattında gece kurye hizmeti.</li>
+                    </ul>
+                </div>
+                <div class="quote-card">
+                    <p>"Üsküdar, iki yakanın birleştiği nokta. Stratejik konumumuz sayesinde gönderilerinizi dakikalar içinde Avrupa'ya geçiriyoruz."</p>
+                    <span>Üsküdar Saha Amiri</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact">
+            <div class="container contact-grid">
+                <div class="card contact-card">
+                    <h3>Üsküdar İletişim</h3>
+                    <div class="cta-group" style="margin-top: 20px;">
+                        <a href="javascript:void(0)" onclick="openActionModal('call')" class="btn ghost full-width">Hemen Ara</a>
+                        <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="btn primary full-width">WhatsApp</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Hemen Gönder</h3>
+                    <form class="contact-form">
+                        <label>Nereden?</label>
+                        <input type="text" placeholder="Örn: Çengelköy" required>
+                        <label>Nereye?</label>
+                        <input type="text" placeholder="Örn: Beşiktaş" required>
+                        <button type="button" onclick="openActionModal('whatsapp')" class="btn primary full-width">WhatsApp'tan Yaz</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <p class="eyebrow">Hızlı Adam Express</p>
+                <p>7/24 Motorlu Kurye Hizmeti.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Anasayfa</a>
+                <a href="uskudar-kurye.html" class="active">Üsküdar Kurye</a>
+                <a href="kadikoy-kurye.html">Kadıköy Kurye</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+        <p class="legal">&copy; 2025 Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <div class="mobile-action-bar">
+        <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="mobile-btn whatsapp">WhatsApp</a>
+        <a href="javascript:void(0)" onclick="openActionModal('call')" class="mobile-btn call">Hemen Ara</a>
+    </div>
+
+    <div id="actionModal" class="action-modal hidden">
+        <div class="action-modal-overlay" onclick="closeActionModal()"></div>
+        <div class="action-sheet">
+            <div class="sheet-header">
+                <h3 id="modalTitle">İletişim Hattı Seçiniz</h3>
+                <button onclick="closeActionModal()" class="close-sheet">&times;</button>
+            </div>
+            <div class="sheet-body">
+                <a id="btnOption1" href="#" class="sheet-btn primary">
+                    <span class="btn-label">Hat 1</span>
+                    <span class="btn-num">...</span>
+                </a>
+                <a id="btnOption2" href="#" class="sheet-btn secondary">
+                    <span class="btn-label">Hat 2</span>
+                    <span class="btn-num">...</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

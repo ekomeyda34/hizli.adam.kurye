@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hızlı Adam Kurye | İstanbul Motorlu Kurye Hizmetleri</title>
+    <meta name="description" content="İstanbul içi acil motorlu kurye, ekspres ve VIP teslimat. Evrak, paket ve koli gönderimi için anında fiyat alın.">
+    
+    <link rel="stylesheet" href="./style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <span class="logo-mark">HA</span>
+                    <div>
+                        <p>Hızlı Adam</p>
+                        <small>Express Kurye</small>
+                    </div>
+                </div>
+                
+                <button class="menu-toggle" aria-label="Menüyü Aç">
+                    <span></span><span></span><span></span>
+                </button>
+                
+                <div class="nav-panel">
+                    <div class="nav-links">
+                        <a href="index.html" class="active">Anasayfa</a>
+                        <a href="#fiyat">Fiyat Hesapla</a>
+                        <a href="#bolgeler">Hizmet Bölgeleri</a>
+                        <a href="iletisim.html">İletişim</a>
+                    </div>
+                    <div class="nav-cta">
+                        <a href="tel:05403022628" class="btn ghost">0540 302 26 28</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-grid">
+                <div>
+                    <p class="eyebrow">7/24 MOTOSİKLETLİ KURYE</p>
+                    <h1>İstanbul'un Her Noktasına <br><span>Hızlı Teslimat</span></h1>
+                    <p class="lead">Trafiğe takılmadan, evrak ve paketlerinizi dakikalar içinde alıyor, güvenle teslim ediyoruz.</p>
+                    <div class="cta-group">
+                        <a href="#fiyat" class="btn primary">Hemen Kurye Çağır</a>
+                        <a href="tel:05403022628" class="btn ghost">Bizi Ara</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                     <img src="https://images.unsplash.com/photo-1618472609777-b038f1f04b8d?auto=format&fit=crop&w=800&q=80" alt="Motosikletli Kurye">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="fiyat" style="background: #eef2ff;">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Fiyat Hesapla & Kurye Çağır</h2>
+                    <p>Hizmet türünü ve adresleri seçin, anında net fiyatı görün.</p>
+                </div>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <form id="priceForm" class="card" style="box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                        
+                        <div class="form-group">
+                            <label>Alınacak Adres</label>
+                            <input type="text" name="pickup" placeholder="Örn: Beşiktaş Merkez" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Teslim Edilecek Adres</label>
+                            <input type="text" name="delivery" placeholder="Örn: Kadıköy Moda" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Hizmet Türü</label>
+                            <select id="courierType" class="form-select">
+                                <option value="normal">🛵 Normal Kurye (120-180 dk)</option>
+                                <option value="express">🚀 Ekspres Kurye (60-90 dk)</option>
+                                <option value="vip">💎 VIP Kurye (45-60 dk)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gönderi İçeriği</label>
+                            <select id="shipmentType" class="form-select">
+                                <option value="Evrak">📄 Evrak / Dosya</option>
+                                <option value="Zarf">✉️ Zarf / Pasaport</option>
+                                <option value="Koli">📦 Koli / Paket</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn primary full-width">Fiyatı Hesapla</button>
+                    </form>
+
+                    <div id="priceResult" class="card hidden" style="margin-top: 1.5rem; text-align: center; border: 2px solid var(--primary);">
+                        <p class="result-label">Tahmini Mesafe</p>
+                        <p class="result-val"><span id="distance">0 km</span></p>
+                        
+                        <p class="result-label">Tahmini Tutar</p>
+                        <p class="result-val price"><span id="price">0</span> TL</p>
+                        
+                        <div id="koliWarning" class="hidden warning-box">
+                            ⚠️ <strong>DİKKAT:</strong> Koli ebatlarına göre fiyat değişebilir. Lütfen ürünün fotoğrafını WhatsApp üzerinden iletiniz.
+                        </div>
+
+                        <a href="#" target="_blank" id="whatsappLink" class="btn primary full-width" style="margin-top: 1rem;">
+                            WhatsApp ile Onay Al
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="avantajlar">
+            <div class="container">
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>⚡ Hızlı Teslimat</h3>
+                        <p>İstanbul trafiğinde en hızlı rotaları kullanarak zaman kazandırıyoruz.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🛡️ Güvenli Taşıma</h3>
+                        <p>Gönderileriniz yağmura ve darbeye dayanıklı özel çantalarda taşınır.</p>
+                    </div>
+                    <div class="card">
+                        <h3>📞 7/24 Destek</h3>
+                        <p>Operasyon merkezimize dilediğiniz zaman ulaşabilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="bolgeler">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Hizmet Bölgelerimiz</h2>
+                </div>
+                <div class="districts-grid">
+                    <a href="sisli-kurye.html" class="district-item">Şişli Kurye</a>
+                    <a href="besiktas-kurye.html" class="district-item">Beşiktaş Kurye</a>
+                    <a href="kadikoy-kurye.html" class="district-item">Kadıköy Kurye</a>
+                    <a href="sariyer-kurye.html" class="district-item">Sarıyer Kurye</a>
+                    <a href="fatih-kurye.html" class="district-item">Fatih Kurye</a>
+                    <a href="uskudar-kurye.html" class="district-item">Üsküdar Kurye</a>
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h3>Hızlı Adam Express</h3>
+                <p>İstanbul içi kurumsal ve bireysel motorlu kurye hizmetleri.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Anasayfa</a>
+                <a href="iletisim.html">İletişim</a>
+                <a href="https://wa.me/905403022628">WhatsApp</a>
+            </div>
+            <div><p>© 2025 Tüm Hakları Saklıdır.</p></div>
+        </div>
+    </footer>
+
+    <div class="mobile-action-bar">
+        <a href="https://wa.me/905403022628" class="mobile-btn whatsapp">WhatsApp</a>
+        <a href="tel:05403022628" class="mobile-btn call">Hemen Ara</a>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIeyxfssrkl7nPo5C-Mk8lw9XSiPOmd20&libraries=places&callback=initMap" async defer></script>
+    <div class="mobile-action-bar">
+    <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="mobile-btn whatsapp">WhatsApp</a>
+    <a href="javascript:void(0)" onclick="openActionModal('call')" class="mobile-btn call">Hemen Ara</a>
+</div>
+
+<div id="actionModal" class="action-modal hidden">
+    <div class="action-modal-overlay" onclick="closeActionModal()"></div>
+    <div class="action-sheet">
+        <div class="sheet-header">
+            <h3 id="modalTitle">İletişim Hattı Seçiniz</h3>
+            <button onclick="closeActionModal()" class="close-sheet">&times;</button>
+        </div>
+        <div class="sheet-body">
+            <a id="btnOption1" href="#" class="sheet-btn primary">
+                <span class="btn-label">Hat 1</span>
+                <span class="btn-num">0542 302 26 28</span>
+            </a>
+            <a id="btnOption2" href="#" class="sheet-btn secondary">
+                <span class="btn-label">Hat 2</span>
+                <span class="btn-num">0540 302 26 28</span>
+            </a>
+        </div>
+    </div>
+</div>
+    <script src="./script.js"></script>
+
+</body>
+</html>

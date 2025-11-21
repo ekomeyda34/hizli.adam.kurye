@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sarıyer kurye hizmetleri: Maslak, Zekeriyaköy, Tarabya ve İstinye bölgesinde hızlı, güvenilir motorlu kurye.">
+    <meta name="keywords" content="Sarıyer kurye, Maslak kurye, Zekeriyaköy kurye, İstinye kurye, Tarabya kurye, Yeniköy moto kurye, Acil kurye">
+    <title>Sarıyer Kurye | Hızlı Adam Express</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="inner-page">
+    <header class="site-header compact">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <span class="logo-mark">HA</span>
+                    <div>
+                        <p>Hızlı Adam Express Kurye</p>
+                        <small>Kurumsal Operasyon</small>
+                    </div>
+                </div>
+                <button class="menu-toggle" aria-expanded="false" aria-label="Menüyü Aç">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="nav-panel" id="primaryNav">
+                    <div class="nav-links">
+                        <a href="index.html">Anasayfa</a>
+                        <a href="hizmetler.html">Hizmetlerimiz</a>
+                        <a href="sariyer-kurye.html" class="active">Sarıyer Kurye</a>
+                        <a href="iletisim.html">İletişim</a>
+                    </div>
+                    <div class="nav-cta">
+                        <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="btn primary">WhatsApp</a>
+                        <a href="javascript:void(0)" onclick="openActionModal('call')" class="btn ghost">Ara</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="page-hero">
+                <div>
+                    <p class="eyebrow">Kuzey Hattı</p>
+                    <h1>Sarıyer – Maslak – Zekeriyaköy Hattı</h1>
+                    <p class="lead">Sarıyer'in geniş coğrafyasında, Maslak plazalarından Zekeriyaköy villalarına kadar her noktaya ekspres ulaşım.</p>
+                    <div class="cta-group">
+                        <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="btn primary">Kurye Çağır</a>
+                        <a href="#sariyer-detay" class="btn ghost">Bölge Detayları</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" id="sariyer-detay">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Sarıyer Operasyonu</p>
+                    <h2>İş Dünyası ve Yaşam Merkezleri</h2>
+                </div>
+                <div class="card-grid">
+                    <article class="card">
+                        <h3>🏢 Maslak İş Merkezi</h3>
+                        <p>Maslak ve Ayazağa plazaları arasında evrak, sözleşme ve koli transferleri için kurumsal abonelikler.</p>
+                    </article>
+                    <article class="card">
+                        <h3>🌲 Zekeriyaköy & Kilyos</h3>
+                        <p>Şehir merkezine uzak noktalara, orman yolunu ve tünelleri kullanan hızlı kurye erişimi.</p>
+                    </article>
+                    <article class="card">
+                        <h3>🚤 Sahil Hattı</h3>
+                        <p>İstinye, Yeniköy ve Tarabya sahil şeridinde trafikten etkilenmeyen motosikletli dağıtım.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section highlight">
+            <div class="container highlight-grid">
+                <div>
+                    <p class="eyebrow">Neden Biz?</p>
+                    <h2>Uzak Mesafeler Yakınlaşır</h2>
+                    <ul class="steps">
+                        <li><span>Hız</span>Maslak'tan Şişli'ye 25 dakikada teslimat.</li>
+                        <li><span>Güven</span>Zekeriyaköy villaları için güvenli paket teslimi.</li>
+                        <li><span>7/24</span>Sarıyer geneli gece kurye hizmeti.</li>
+                    </ul>
+                </div>
+                <div class="quote-card">
+                    <p>"Maslak trafiğinin kilitlendiği saatlerde bile Büyükdere Caddesi alternatiflerini kullanarak zamanında teslimat yapıyoruz."</p>
+                    <span>Sarıyer Saha Sorumlusu</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact">
+            <div class="container contact-grid">
+                <div class="card contact-card">
+                    <h3>Sarıyer İletişim</h3>
+                    <div class="cta-group" style="margin-top: 20px;">
+                        <a href="javascript:void(0)" onclick="openActionModal('call')" class="btn ghost full-width">Hemen Ara</a>
+                        <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="btn primary full-width">WhatsApp</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Talep Oluştur</h3>
+                    <form class="contact-form">
+                        <label>Nereden?</label>
+                        <input type="text" placeholder="Örn: Maslak No/1" required>
+                        <label>Nereye?</label>
+                        <input type="text" placeholder="Örn: Etiler" required>
+                        <button type="button" onclick="openActionModal('whatsapp')" class="btn primary full-width">WhatsApp'tan Yaz</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <p class="eyebrow">Hızlı Adam Express</p>
+                <p>Profesyonel kurye çözümleri.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Anasayfa</a>
+                <a href="sariyer-kurye.html" class="active">Sarıyer Kurye</a>
+                <a href="sisli-kurye.html">Şişli Kurye</a>
+                <a href="iletisim.html">İletişim</a>
+            </div>
+        </div>
+        <p class="legal">&copy; 2025 Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <div class="mobile-action-bar">
+        <a href="javascript:void(0)" onclick="openActionModal('whatsapp')" class="mobile-btn whatsapp">WhatsApp</a>
+        <a href="javascript:void(0)" onclick="openActionModal('call')" class="mobile-btn call">Hemen Ara</a>
+    </div>
+
+    <div id="actionModal" class="action-modal hidden">
+        <div class="action-modal-overlay" onclick="closeActionModal()"></div>
+        <div class="action-sheet">
+            <div class="sheet-header">
+                <h3 id="modalTitle">İletişim Hattı Seçiniz</h3>
+                <button onclick="closeActionModal()" class="close-sheet">&times;</button>
+            </div>
+            <div class="sheet-body">
+                <a id="btnOption1" href="#" class="sheet-btn primary">
+                    <span class="btn-label">Hat 1</span>
+                    <span class="btn-num">...</span>
+                </a>
+                <a id="btnOption2" href="#" class="sheet-btn secondary">
+                    <span class="btn-label">Hat 2</span>
+                    <span class="btn-num">...</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
