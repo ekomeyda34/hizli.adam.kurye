@@ -57,18 +57,18 @@ const updatePriceDisplay = (distanceKm) => {
     
     // --- FİYAT TARİFESİ (BURADAN DÜZELTME YAPILIR) ---
     if (courierType === "normal") {
-        // Normal: Açılış 300 TL + 45 TL/km
-        totalPrice = 300 + (parseFloat(distanceKm) * 45); 
+        // Normal: Açılış 300 TL + 20 TL/km
+        totalPrice = 300 + (parseFloat(distanceKm) * 20); 
         serviceName = "Normal Kurye";
     } 
     else if (courierType === "express") {
-        // Ekspres: Açılış 450 TL + 50 TL/km
-        totalPrice = 450 + (parseFloat(distanceKm) * 50);
+        // Ekspres: Açılış 450 TL + 30 TL/km
+        totalPrice = 450 + (parseFloat(distanceKm) * 30);
         serviceName = "Ekspres Kurye";
     } 
     else if (courierType === "vip") {
-        // VIP: Açılış 550 TL + 60 TL/km
-        totalPrice = 550 + (parseFloat(distanceKm) * 60);
+        // VIP: Açılış 550 TL + 40 TL/km
+        totalPrice = 550 + (parseFloat(distanceKm) * 40);
         serviceName = "VIP Kurye";
     }
 
@@ -260,4 +260,5 @@ document.addEventListener('keydown', function(event) {
     }
 
 });
+
 
